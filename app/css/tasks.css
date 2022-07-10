@@ -1,0 +1,28 @@
+.tasks {
+    display: flex;
+    flex-grow: 1;
+    margin-left: 1em;
+    overflow: auto;
+}
+
+.task {
+    width: 500px;
+    height: 10px;
+    color: rgb(0, 0, 0);
+    background-color: rgb(255, 255, 255);
+    box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
+    margin: 20px;
+    border-radius: 10px;
+    padding: 20px;
+}
+
+.tasksList {
+    background: linear-gradient(#004383, #837ed8);
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+}
+
+.tasksWrapper {
+    height: 100vh;
+}
