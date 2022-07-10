@@ -11,6 +11,5 @@ function Member() {
         return container;
     }
 }
-Member.prototype = Object.create(Component.prototype);
 
 const member = new Member();

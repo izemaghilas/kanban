@@ -110,6 +110,5 @@ function Kanban() {
         return kanban;
     }
 }
-Kanban.prototype = Object.create(Component.prototype);
 
 const kanban = new Kanban();

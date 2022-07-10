@@ -11,4 +11,4 @@ function Tasks() {
         return container;
     }
 }
-Tasks.prototype = Object.create(Component.prototype);
+let tasks = new Tasks();

@@ -1,19 +1,21 @@
 .kanban {
     display: flex;
-    background-color: #172b4d;
     flex-grow: 1;
+    margin-left: 1em;
     overflow: auto;
 }
 
 .list-wrapper {
     display: flex;
     flex-direction: column;
+    min-height: 80vh;
 }
 .list {
     display: flex;
+    padding: 10px;
     flex-direction: column;
-    background-color: #ebecf0;
-    margin-left: 10px;
+    background: linear-gradient(#337dab, #656dc5);
+    box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px;    margin-left: 10px;
     margin-right: 10px;
     margin-top: 20px;
     margin-bottom: 20px;
@@ -27,7 +29,7 @@
     margin-top: 5px;
     font-size: medium;
     font-weight: 700;
-    color: #172b4d;
+    color: #ffffff;
 }
 .list-cards {
     display: flex;

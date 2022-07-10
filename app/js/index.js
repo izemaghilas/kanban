@@ -2,38 +2,36 @@
 
 // init router
 {
-    router
-    .add("/", app)
-    // .add("/tasks", task) // pass Tasks component
+  router
+  .add("/", kanban)
+    .add("/tasks", tasks) // pass Tasks component
     .add("/kanban", kanban)
-    // .add("/members", member); // pass Members component
+    .add("/members", member) // pass Members component
 }
 
 // init DB
 {
-    let tasks = taskDao.readAll();
-    if(tasks.length === 0) {
-        let contents = [
-            "jouer à la guitare",
-            "apprendre un framework javascript",
-            "lire un livre",
-            "apprendre le langage C++"
-        ];
-        contents.forEach((content, index) => {
-            taskDao.save(new Task(index + 1, content, taskStatus.TO_PLAN));
-        });
-    }
+  let tasks = taskDao.readAll();
+  let contents = [
+    "jouer à la guitare",
+    "apprendre un framework javascript",
+    "lire un livre",
+    "apprendre le langage C++",
+  ];
+  contents.forEach((content, index) => {
+    taskDao.save(new Task(index + 1, content, taskStatus.TO_PLAN));
+  });
 }
 
 // run SPA
 {
+  router.draw();
+  window.addEventListener("pagechange", function (e) {
     router.draw();
-    window.addEventListener("pagechange", function(e) {
-        router.draw();  
-    });
-    window.addEventListener("popstate", function() {
-        router.draw();
-    });
+  });
+  window.addEventListener("popstate", function () {
+    router.draw();
+  });
 }
 
 // const container = document.getElementById("container");
