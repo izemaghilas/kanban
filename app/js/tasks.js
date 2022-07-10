@@ -22,24 +22,6 @@ function TaskList(title) {
       list.appendChild(this.cards);
       wrapper.appendChild(list);
   
-      // droppable cards
-      this.cards.addEventListener("dragover", function (e) {
-        e.preventDefault();
-        e.dataTransfer.dropEffect = "move";
-      });
-      this.cards.addEventListener("drop", function (e) {
-        e.preventDefault();
-        let taskId = `task-${e.dataTransfer.getData("text/plain")}`;
-        let task = taskDao.find(taskId);
-        this.appendChild(document.getElementById(taskId));
-  
-        // set task status
-        if (title === taskStatus.TO_PLAN) {
-          task.setStatus(taskStatus.TO_PLAN);
-          taskDao.update(task);
-        }
-      });
-  
       return wrapper;
     };
   }
@@ -61,6 +43,15 @@ function Tasks() {
         }
       });
 
+      //event listener on storage to refresh the tasks when it gets updated
+     window.addEventListener("storage", (event) => {
+        while (taskList.lastElementChild) {
+          taskList.removeChild(taskList.lastElementChild);
+        }
+        let tasks = taskDao.readAll();
+        showTasks(tasks);
+      });
+      
       taskList.appendChild(toPlanList.draw());
     };
 
