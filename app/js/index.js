@@ -12,7 +12,7 @@
 // init DB
 {
   let tasks = taskDao.readAll();
-  let contents = [
+  /* let contents = [
     "jouer à la guitare",
     "apprendre un framework javascript",
     "lire un livre",
@@ -20,7 +20,7 @@
   ];
   contents.forEach((content, index) => {
     taskDao.save(new Task(index + 1, content, taskStatus.TO_PLAN));
-  });
+  }); */
 }
 
 // run SPA
