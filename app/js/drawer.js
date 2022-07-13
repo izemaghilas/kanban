@@ -1,13 +1,13 @@
 "use strict";
 
-function Drawer () {
-    this.root = document.getElementById("container");
-    this.draw = function(element) {
-        while(this.root.lastElementChild) {
-            this.root.removeChild(this.root.lastElementChild);
-        }
-        this.root.appendChild(element.draw());
+export default function Drawer() {
+  this.draw = function (element) {
+    const root = document.getElementById("container");
+    if (root !== null) {
+      while (root.lastElementChild) {
+        root.removeChild(root.lastElementChild);
+      }
+      root.appendChild(element.draw());
     }
+  };
 }
-
-const drawer = new Drawer();

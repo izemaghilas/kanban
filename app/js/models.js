@@ -1,6 +1,6 @@
 "use strict";
 
-function Task(id, content, status) {
+export function Task(id, content, status) {
   this.id = id;
   this.content = content;
   this.status = status;
@@ -9,7 +9,8 @@ function Task(id, content, status) {
   };
 }
 
-function Members(firstName, lastName, email, jobTitle) {
+export function Member(id, firstName, lastName, email, jobTitle) {
+  this.id = id;
   this.firstName = firstName;
   this.lastName = lastName;
   this.email = email;
