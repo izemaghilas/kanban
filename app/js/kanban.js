@@ -14,6 +14,7 @@ function Card(task) {
     card.textContent = task.content;
     const button = document.createElement("button");
     button.type = "button";
+    button.innerHTML="copier"
     button.className = "btn-press";
     button.id = "btn-press";
     button.onclick = function () {
@@ -91,7 +92,7 @@ function presse_pappier(text) {
   navigator.clipboard
     .writeText(text)
     .then(() => {
-      alert("text copied");
+      alert("texte copié");
     })
     .catch((err) => {
       console.log("error:", err);
