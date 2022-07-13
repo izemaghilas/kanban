@@ -23,10 +23,12 @@ export function TaskDao() {
 
   this.save = function (task) {
     localStorage.setItem(`task-${task.id}`, JSON.stringify(task));
+    window.dispatchEvent(new Event("storage"));
   };
 
   this.update = function (task) {
     localStorage.setItem(`task-${task.id}`, JSON.stringify(task));
+    window.dispatchEvent(new Event("storage"));
   };
 }
 

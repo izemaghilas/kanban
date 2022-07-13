@@ -1,5 +1,6 @@
 html, body {
     margin: 0;
+    background: linear-gradient(#a2dce9, #cce5ed);
 }
 
 #container {
