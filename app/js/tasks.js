@@ -25,7 +25,16 @@ function TaskList(title) {
       return wrapper;
     };
   }
-  
+  function presse_pappier(text){
+  console.log(text);
+  navigator.clipboard.writeText(text)
+                .then(()=>{
+                  alert("text copied")
+                })
+                .catch(err=>{
+                  console.log("error:",err);
+                })
+}
 function Tasks() {
     
     this.draw = function() {
@@ -67,6 +76,14 @@ function TaskCard(task) {
       card.id = `task-${task.id}`;
       card.className = "task";
       card.textContent = task.content;
+      const button=document.createElement('button');
+    button.type='button';
+    button.className="btn-press";
+    button.id="btn-press";
+    button.onclick=function(){
+      presse_pappier(card.textContent);
+    }
+    card.appendChild(button);
   
       return card;
     };

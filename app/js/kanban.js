@@ -21,6 +21,7 @@ function Card(task) {
     card.addEventListener("dragstart", function (e) {
       e.dataTransfer.setData("text/plain", task.id);
       e.dataTransfer.dropEffect = "move";
+
     });
 
     return card;
@@ -52,8 +53,10 @@ function List(title) {
 
     // droppable cards
     this.cards.addEventListener("dragover", function (e) {
+      navigator.vibrate(300);
       e.preventDefault();
       e.dataTransfer.dropEffect = "move";
+
     });
     this.cards.addEventListener("drop", function (e) {
       e.preventDefault();

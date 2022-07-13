@@ -52,15 +52,14 @@
     font-size: 16px;
     color: #172b4d;
 }
-.btn-press {
-    line-height: 12px;
+#btn-press {
     margin-top: 1px;
     margin-right: 2px;
-    top: 0;
+    bottom: 0;
     right: 0;
     float: right;
     position: relative;
-    background-color: blue;
+    background-image: url('../images/presse-papier.png');
     width: 20px;
     height: 20px;
 }
