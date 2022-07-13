@@ -1,32 +1,80 @@
 .members {
-    display: flex;
-    flex-grow: 1;
-    margin-left: 1em;
-    overflow: auto;
+  display: flex;
+  flex-grow: 1;
+  margin-left: 1em;
+  overflow: auto;
+}
+
+.add-member-container {
+  background-color: yellow;
 }
 
 .member {
-    width: 500px;
-    height: 100%;
-    color: rgb(0, 0, 0);
-    background-color: rgb(255, 255, 255);
-    box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
-    margin: 20px;
-    border-radius: 10px;
-    padding: 20px;
+  width: 85%;
+  height: 100%;
+  color: rgb(0, 0, 0);
+  background-color: rgb(255, 255, 255);
+  box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px,
+    rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
+  margin: 20px;
+  border-radius: 10px;
+  padding: 20px;
 }
 
 .membersList {
-    background: linear-gradient(#004383, #837ed8);
-    display: flex;
-    box-shadow: rgba(0, 0, 0, 0.25) 0px 14px 28px, rgba(0, 0, 0, 0.22) 0px 10px 10px;
-    flex-direction: column;
-    padding: 20px;
-    min-width: 400px;
-    min-height: 90px;
-    margin-left: 1em;
+  background: linear-gradient(#004383, #837ed8);
+  display: flex;
+  box-shadow: rgba(0, 0, 0, 0.25) 0px 14px 28px,
+    rgba(0, 0, 0, 0.22) 0px 10px 10px;
+  flex-direction: column;
+  padding: 20px;
+  min-width: 400px;
+  min-height: 90px;
+  border-radius: 10px;
+  margin-left: 1em;
 }
 
 .membersWrapper {
-    height: 100vh;
+  height: 100vh;
+}
+
+.user-input {
+  width: 90%;
+  height: 40px;
+  margin-top: 20px;
+  margin-left: 20px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  padding: 5px;
+  margin-bottom: 10px;
+}
+
+.button {
+  background-color: #4caf50;
+  border: none;
+  margin-left: 20px;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  cursor: pointer;
+}
+
+@media only screen and (max-width: 600px) {
+  .members {
+    flex-direction: column;
+    margin: 0px;
+  }
+
+  .member {
+    width: 80%;
+    height: 100%;
+  }
+
+  .membersList {
+    min-width: 200px;
+    min-height: 90px;
+    padding: 1em;
+    margin: 1em;
+  }
 }

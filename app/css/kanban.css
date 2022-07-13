@@ -63,3 +63,16 @@
     width: 20px;
     height: 20px;
 }
+
+@media only screen and (max-width: 600px) {
+    .kanban {
+        flex-direction: column;
+        margin: 0px
+    }
+
+    .list-wrapper  {
+        flex-direction: column;
+        min-height: 20vh;
+        margin: 0px;
+    }
+  }

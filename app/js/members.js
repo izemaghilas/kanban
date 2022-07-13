@@ -40,9 +40,16 @@ function MemberList(title) {
     const inputJobTitle = document.createElement("input");
     inputJobTitle.placeholder = "poste professionnel";
 
+    inputId.className = "user-input";
+    inputFirstName.className = "user-input";
+    inputLastName.className = "user-input";
+    inputEmail.className = "user-input";
+    inputJobTitle.className = "user-input";
+
+
     button.type = "button";
     button.innerHTML = "Ajouter";
-    button.className = "btn-styled";
+    button.className = "button";
     button.onclick = function () {
       memberDao.save(
         new Member(
