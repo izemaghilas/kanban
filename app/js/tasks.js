@@ -1,6 +1,8 @@
 "use strict";
 import { TaskDao } from "./dao.js";
+import { Task } from "./models.js";
 import { taskStatus } from "./constants.js";
+
 
 const taskDao = new TaskDao();
 
@@ -26,6 +28,25 @@ export function TaskList(title) {
     this.cards.className = "list-cards";
     list.appendChild(this.cards);
     wrapper.appendChild(list);
+
+    const button = document.createElement("button");
+    const inputId = document.createElement("input");
+    inputId.placeholder = "id";
+    const inputTask = document.createElement("input");
+    inputTask.placeholder = "Task";
+
+    button.type = "button";
+    button.innerHTML = "Ajouter";
+    button.className = "btn-styled";
+    button.onclick = function () {
+      taskDao.save(new Task(
+        inputId.value, 
+        inputTask.value,
+        taskStatus.TO_PLAN));
+    };
+    wrapper.appendChild(inputId);
+    wrapper.appendChild(inputTask);
+    wrapper.appendChild(button);
 
     return wrapper;
   };
@@ -58,6 +79,7 @@ export default function Tasks() {
 
       //event listener on storage to refresh the tasks when it gets updated
       window.addEventListener("storage", (event) => {
+        console.log("storage event");
         while (taskList.lastElementChild) {
           taskList.removeChild(taskList.lastElementChild);
         }

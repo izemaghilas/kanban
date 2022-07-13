@@ -21,6 +21,7 @@ navbar.id = "navbar";
 let button_tasks = document.createElement("button");
 button_tasks.innerHTML = "Tasks";
 button_tasks.id = "btn-tasks";
+button_tasks.className = "btn-header";
 button_tasks.onclick = function () {
   router.setPath("/tasks");
 };
@@ -28,6 +29,7 @@ button_tasks.onclick = function () {
 let button_members = document.createElement("button");
 button_members.innerHTML = "Members";
 button_members.id = "btn-members";
+button_members.className = "btn-header";
 button_members.onclick = function () {
   router.setPath("/members");
 };
@@ -35,6 +37,7 @@ button_members.onclick = function () {
 let button_kanban = document.createElement("button");
 button_kanban.innerHTML = "Kanban";
 button_kanban.id = "btn-kanban";
+button_kanban.className = "btn-header";
 button_kanban.onclick = function () {
   router.setPath("/kanban");
 };
