@@ -72,7 +72,6 @@ export default function Tasks() {
   };
 }
 
-<<<<<<< app/js/tasks.js
 function TaskCard(task) {
     this.task = task;
     this.draw = function () {
@@ -91,17 +90,4 @@ function TaskCard(task) {
   
       return card;
     };
-  }
-=======
-export function TaskCard(task) {
-  this.task = task;
-  this.draw = function () {
-    const card = document.createElement("span");
-    card.id = `task-${task.id}`;
-    card.className = "task";
-    card.textContent = task.content;
->>>>>>> app/js/tasks.js
-
-    return card;
-  };
 }
