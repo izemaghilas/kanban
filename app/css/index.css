@@ -17,7 +17,7 @@ html, body {
     margin-left: 2em;
 }
 
-#button {
+button {
     border-radius: 5px;
     background-color: #094f99;
     border: none;

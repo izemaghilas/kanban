@@ -1,8 +1,7 @@
 "use strict";
 
-
-import { TaskDao } from './dao.js'
-//import {taskStatus} from './constants.js'
+import { TaskDao } from "./dao.js";
+import { taskStatus } from "./constants.js";
 
 const taskDao = new TaskDao();
 
@@ -122,5 +121,3 @@ export default function Kanban() {
     return kanban;
   };
 }
-
-//const kanban = new Kanban();
