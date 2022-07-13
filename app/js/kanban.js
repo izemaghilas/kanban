@@ -12,13 +12,13 @@ function Card(task) {
     card.id = `task-${task.id}`;
     card.className = "card";
     card.textContent = task.content;
-    const button=document.createElement('button');
-    button.type='button';
-    button.className="btn-press";
-    button.id="btn-press";
-    button.onclick=function(){
+    const button = document.createElement("button");
+    button.type = "button";
+    button.className = "btn-press";
+    button.id = "btn-press";
+    button.onclick = function () {
       presse_pappier(card.textContent);
-    }
+    };
     card.appendChild(button);
 
     // draggable card
@@ -26,7 +26,6 @@ function Card(task) {
     card.addEventListener("dragstart", function (e) {
       e.dataTransfer.setData("text/plain", task.id);
       e.dataTransfer.dropEffect = "move";
-
     });
 
     return card;
@@ -61,7 +60,6 @@ function List(title) {
       navigator.vibrate(300);
       e.preventDefault();
       e.dataTransfer.dropEffect = "move";
-
     });
     this.cards.addEventListener("drop", function (e) {
       e.preventDefault();
@@ -88,15 +86,16 @@ function List(title) {
     return wrapper;
   };
 }
-function presse_pappier(text){
+function presse_pappier(text) {
   console.log(text);
-  navigator.clipboard.writeText(text)
-                .then(()=>{
-                  alert("text copied")
-                })
-                .catch(err=>{
-                  console.log("error:",err);
-                })
+  navigator.clipboard
+    .writeText(text)
+    .then(() => {
+      alert("text copied");
+    })
+    .catch((err) => {
+      console.log("error:", err);
+    });
 }
 
 export default function Kanban() {

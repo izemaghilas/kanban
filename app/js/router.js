@@ -23,6 +23,8 @@ export default function Router() {
   this.draw = function () {
     const path = location.pathname;
     const e = this.routes.find((p) => p.path === path);
-    drawer.draw(e.element);
+    if(e) {
+      drawer.draw(e.element);
+    }
   };
 }
