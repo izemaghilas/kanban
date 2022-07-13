@@ -1,5 +1,4 @@
 "use strict";
-
 import { TaskDao } from "./dao.js";
 import { taskStatus } from "./constants.js";
 
@@ -31,12 +30,20 @@ export function TaskList(title) {
     return wrapper;
   };
 }
-
+function presse_pappier(text){
+  console.log(text);
+  navigator.clipboard.writeText(text)
+                .then(()=>{
+                  alert("text copied")
+                })
+                .catch(err=>{
+                  console.log("error:",err);
+                })
+}
 export default function Tasks() {
   this.draw = function () {
     const taskList = document.createElement("div");
     taskList.className = "tasks";
-
     let tasks = taskDao.readAll();
 
     const showTasks = (tasks) => {
@@ -65,6 +72,27 @@ export default function Tasks() {
   };
 }
 
+<<<<<<< app/js/tasks.js
+function TaskCard(task) {
+    this.task = task;
+    this.draw = function () {
+      const card = document.createElement("span");
+      card.id = `task-${task.id}`;
+      card.className = "task";
+      card.textContent = task.content;
+      const button=document.createElement('button');
+    button.type='button';
+    button.className="btn-press";
+    button.id="btn-press";
+    button.onclick=function(){
+      presse_pappier(card.textContent);
+    }
+    card.appendChild(button);
+  
+      return card;
+    };
+  }
+=======
 export function TaskCard(task) {
   this.task = task;
   this.draw = function () {
@@ -72,6 +100,7 @@ export function TaskCard(task) {
     card.id = `task-${task.id}`;
     card.className = "task";
     card.textContent = task.content;
+>>>>>>> app/js/tasks.js
 
     return card;
   };

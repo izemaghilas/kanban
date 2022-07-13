@@ -30,3 +30,15 @@ button {
     margin: 4px 2px;
     cursor: pointer;
 }
+
+#btn-press {
+    margin-top: 1px;
+    margin-right: 2px;
+    bottom: 0;
+    right: 0;
+    float: right;
+    position: relative;
+    background-image: url('../images/presse-papier.png');
+    width: 20px;
+    height: 20px;
+}
