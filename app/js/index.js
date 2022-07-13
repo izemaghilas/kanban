@@ -4,6 +4,7 @@ import Kanban from "./kanban.js";
 import Members from "./members.js";
 import Router from "./router.js";
 import Tasks from "./tasks.js";
+import TaskUpdate from "./taskUpdate.js";
 import { TaskDao } from "./dao.js";
 import { Task } from "./models.js";
 import { taskStatus } from "./constants.js";
@@ -14,6 +15,7 @@ const kanban = new Kanban();
 const tasks = new Tasks();
 const members = new Members();
 const taskDao = new TaskDao();
+const taskUpdate=new TaskUpdate();
 
 let navbar = document.createElement("div");
 navbar.id = "navbar";
@@ -51,10 +53,11 @@ document.body.appendChild(root);
 
 // init router
 router
-  .add("/", kanban)
-  .add("/tasks", tasks)
-  .add("/kanban", kanban)
-  .add("/members", members);
+  .add(/^\/$/, kanban)
+  .add(/^\/tasks\/[0-9]+$/, taskUpdate)
+  .add(/^\/kanban$/, kanban)
+  .add(/^\/tasks$/, tasks)
+  .add(/^\/members$/, members);
 
 // init DB
 let tasksObj = taskDao.readAll();

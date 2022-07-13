@@ -1,15 +1,18 @@
 "use strict";
-import Router from "./router.js";
 import { TaskDao } from "./dao.js";
 import { Task } from "./models.js";
 import { taskStatus } from "./constants.js";
 
 
-
 const taskDao = new TaskDao();
-const router = new Router();
 
 export function TaskList(title) {
+  const path=location.pathname.split("/");
+  const taskId=path[path.length-1];
+  console.log(taskId);
+  const task=taskDao.find(`task-${taskId}`);
+
+
   this.title = title;
   this.cards = document.createElement("div");
 
@@ -33,43 +36,28 @@ export function TaskList(title) {
     
     
     const button = document.createElement("button");
-    const inputId = document.createElement("input");
-    inputId.placeholder = "id";
     const inputTask = document.createElement("input");
-    inputTask.placeholder = "Task";
-
-    inputId.className = "user-input";
+    inputTask.value = task.content;
     inputTask.className = "user-input";
 
     button.type = "button";
-    button.innerHTML = "Ajouter";
+    button.innerHTML = "Modifier";
     button.className = "button";
     button.onclick = function () {
-      taskDao.save(new Task(
-        inputId.value, 
+      taskDao.update(new Task(
+        taskId, 
         inputTask.value,
         taskStatus.TO_PLAN));
+      history.back();
     };
-    wrapper.appendChild(inputId);
     wrapper.appendChild(inputTask);
     wrapper.appendChild(button);
-    wrapper.appendChild(list);
 
     return wrapper;
   };
 }
-function presse_pappier(text) {
-  console.log(text);
-  navigator.clipboard
-    .writeText(text)
-    .then(() => {
-      alert("texte copié");
-    })
-    .catch((err) => {
-      console.log("error:", err);
-    });
-}
-export default function Tasks() {
+export default function TaskUpdate() {
+
   this.draw = function () {
     const taskList = document.createElement("div");
     taskList.className = "tasks";
@@ -101,9 +89,6 @@ export default function Tasks() {
     return taskList;
   };
 }
-function addRoute(){
-
-}
 function TaskCard(task) {
   this.task = task;
   this.draw = function () {
@@ -126,7 +111,7 @@ function TaskCard(task) {
     buttonM.id = "btn-modifier";
     buttonM.onclick = function () {
       console.log("test");
-      router.setPath('/tasks/'+task.id);
+      router.setPath('/task');
     };
     card.appendChild(button);
     card.appendChild(buttonM);
