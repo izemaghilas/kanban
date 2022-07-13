@@ -1,6 +1,10 @@
 "use strict";
 
-function Router() {
+import Drawer from "./drawer.js";
+
+const drawer = new Drawer();
+
+export default function Router() {
     // custom event triggered when the url changed
     // as history.pushState() didn't trigger 'popstate' event
     this.pageChangeEvent = new CustomEvent("pagechange");
@@ -23,4 +27,5 @@ function Router() {
     }
 }
 
-const router = new Router();
+
+//const router = new Router();

@@ -1,5 +1,5 @@
 // task status
-const taskStatus = {
+export const taskStatus = {
     TO_PLAN: "à planifier",
     IN_PROGRESS: "en cours",
     TO_VALIDATE: "à valider",

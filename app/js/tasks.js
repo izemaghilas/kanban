@@ -1,5 +1,10 @@
 "use strict";
-function TaskList(title) {
+
+import {TaskDao} from "./dao.js";
+
+const taskDao = new TaskDao();
+
+export function TaskList(title) {
     this.title = title;
     this.cards = document.createElement("div");
     
@@ -26,7 +31,7 @@ function TaskList(title) {
     };
   }
   
-function Tasks() {
+export default function Tasks() {
     
     this.draw = function() {
         const taskList = document.createElement("div");
@@ -60,7 +65,7 @@ function Tasks() {
     }
 }
 
-function TaskCard(task) {
+export function TaskCard(task) {
     this.task = task;
     this.draw = function () {
       const card = document.createElement("span");
@@ -72,4 +77,4 @@ function TaskCard(task) {
     };
   }
 
-let tasks = new Tasks();
+// let tasks = new Tasks();

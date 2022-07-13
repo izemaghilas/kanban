@@ -1,6 +1,8 @@
 "use strict";
 
-function TaskDao() {
+import {Member, Task} from './models.js';
+
+export function TaskDao() {
     this.readAll = function() {
         let tasks = [];
         let keys = Object.keys(localStorage);
@@ -28,4 +30,37 @@ function TaskDao() {
     }
 }
 
-const taskDao = new TaskDao();
+export function MemberDao() {
+    this.readAll = function() {
+        let members = [];
+        let keys = Object.keys(localStorage);
+        keys.forEach(key=>{
+            if((/member\-[0-9]+/g).test(key)) {
+                let obj = JSON.parse(localStorage.getItem(key));
+                members.push(new Member(obj.id, obj.firstName, obj.lastName, obj.email, obj.jobTitle));
+            }
+        });
+
+        return members;
+    }
+
+    this.find = function(key) {
+        let obj = JSON.parse(localStorage.getItem(key));
+        return new Member(obj.id, obj.firstName, obj.lastName, obj.email, obj.jobTitle);
+    }
+
+    this.save = function(member) {
+        localStorage.setItem(`member-${member.id}`, JSON.stringify(member));
+        window.dispatchEvent(new Event('storage'));
+    }
+
+    this.update = function(member) {
+        localStorage.setItem(`member-${member.id}`, JSON.stringify(member));
+        window.dispatchEvent(new Event('storage'));
+    }
+}
+
+
+//const taskDao = new TaskDao();
+
+//const memberDao = new MemberDao();

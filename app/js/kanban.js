@@ -1,5 +1,11 @@
 "use strict";
 
+
+import { TaskDao } from './dao.js'
+//import {taskStatus} from './constants.js'
+
+const taskDao = new TaskDao();
+
 function Card(task) {
   this.task = task;
   this.draw = function () {
@@ -73,7 +79,7 @@ function List(title) {
   };
 }
 
-function Kanban() {
+export default function Kanban() {
   this.draw = function () {
     const kanban = document.createElement("div");
     kanban.className = "kanban";
@@ -117,4 +123,4 @@ function Kanban() {
   };
 }
 
-const kanban = new Kanban();
+//const kanban = new Kanban();

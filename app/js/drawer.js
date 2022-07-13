@@ -1,13 +1,17 @@
 "use strict";
 
-function Drawer () {
+export default function Drawer () {
     this.root = document.getElementById("container");
     this.draw = function(element) {
-        while(this.root.lastElementChild) {
-            this.root.removeChild(this.root.lastElementChild);
+        if(this.root !== null){
+            while(this.root.lastElementChild) {
+                this.root.removeChild(this.root.lastElementChild);
+            }
+            this.root.appendChild(element.draw());
         }
-        this.root.appendChild(element.draw());
+
+
     }
 }
 
-const drawer = new Drawer();
+//const drawer = new Drawer();
